@@ -19,12 +19,9 @@ OpenAI API Key
 bot = WhatsappGptBot( id_instance=ID_INSTANCE, 
     api_token_instance=API_TOKEN, 
     openai_api_key=OPENAI_API_KEY, model="gpt-4o", 
-    system_message="You are a helpful assistant. Be 
-    concise and friendly in your replies. Always 
-    respond clearly.", max_history_length=15, 
+    system_message="You are a helpful assistant. Be concise and friendly in your replies. Always respond clearly.", max_history_length=15, 
     temperature=0.7, session_timeout=1800, 
-    error_message="Sorry, your message could not be 
-    processed."
+    error_message="Sorry, your message could not be processed."
 )
 # ====== Enhanced Text Handler ======
 class EnhancedTextHandler(TextMessageHandler): 
