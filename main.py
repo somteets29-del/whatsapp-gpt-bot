@@ -11,17 +11,18 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
-logger = 
-logging.getLogger("whatsapp_chatgpt_python")
+logger = logging.getLogger("whatsapp_chatgpt_python")
 # ====== API KEYS / CONFIG ======
 ID_INSTANCE = "your-instance-id" # Green API 
 Instance ID API_TOKEN = "your-api-token" # Green 
 API Token OPENAI_API_KEY = "your-openai-api-key" # 
 OpenAI API Key
 # ====== Initialize bot ======
-bot = WhatsappGptBot( id_instance=ID_INSTANCE, 
+bot = WhatsappGptBot( 
+    id_instance=ID_INSTANCE, 
     api_token_instance=API_TOKEN, 
-    openai_api_key=OPENAI_API_KEY, model="gpt-4o", 
+    openai_api_key=OPENAI_API_KEY, 
+    model="gpt-4o", 
     system_message="You are a helpful assistant. Be concise and friendly in your replies. Always respond clearly.", max_history_length=15, 
     temperature=0.7, session_timeout=1800, 
     error_message="Sorry, your message could not be processed."
@@ -33,11 +34,12 @@ class EnhancedTextHandler(TextMessageHandler):
         text = await 
         super().process_message(notification, 
         *args, **kwargs) if not text:
-            return text lower_text = text.lower() 
+            return text 
+            lower_text = text.lower() 
         if any(term in lower_text for term in 
         ['code', 'function', 'script', 'program']):
-            return f"🧑‍💻 CODE REQUEST: 
-            {text}\n\n[Formatted code response]"
+            return f"🧑‍💻 CODE REQUEST: {text}
+\n\n[Formatted code response]"
         elif text.endswith('?') or 
         text.lower().startswith(
                 ('what', 'why', 'how', 'when', 
@@ -53,12 +55,11 @@ message_content, messages, session_data):
     user_id = notification.sender if 
     isinstance(message_content, str) and 
     len(message_content) > 100:
-        content_display = message_content[:100] + 
-        "..."
+        content_display = message_content[:100] +  "..."
     else: content_display = message_content 
     logger.info(f"Message from {user_id}: 
-    {content_display}") if "variables" not in 
-    session_data.context:
+    {content_display}")
+ if "variables" not in session_data.context:
         session_data.context["variables"] = {} 
     session_data.context["variables"].update({
         "last_interaction": int(time.time()), 
