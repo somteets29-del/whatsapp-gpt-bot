@@ -1,7 +1,9 @@
 import time
 import logging 
-from whatsapp_chatgpt_python import WhatsappGptBot, 
-TextMessageHandler
+from whatsapp_chatgpt_python import (
+WhatsappGptBot, 
+TextMessageHandler,
+)
 # from whatsapp_chatgpt_python import 
 # ImageMessageHandler # optional if using images 
 # ====== Logging ======
