@@ -9,4 +9,4 @@ bot = WhatsappGptBot(
     system_message="You are a helpful assistant."
 )
 
-if name = "main":
+if name == "main":
