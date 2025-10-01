@@ -4,9 +4,10 @@ TextMessageHandler
 # from whatsapp_chatgpt_python import 
 # ImageMessageHandler # optional if using images 
 # ====== Logging ======
-logging.basicConfig(level=logging.INFO, 
-format="%(asctime)s - %(name)s - %(levelname)s - 
-%(message)s")
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
 logger = 
 logging.getLogger("whatsapp_chatgpt_python")
 # ====== API KEYS / CONFIG ======
